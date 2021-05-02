@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="/icon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+
+ 
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" defer href="admin.css" />
+    <!-- <script defer src="auth.js"></script> -->
+     <script defer src="script.js"></script>
+    <title>StudeBank</title>
+  </head>
+  <body>
+    <!-- TOP NAVIGATION -->
+    <nav>
+      <p class="welcome">Log in to get started</p>
+      <!-- <img src="logo.png" alt="Logo" class="logo" /> -->
+
+      <div class="sign">
+        <button id="sign_up" class="sign_up">Sign Up</button>
+        <button id="log_in" class="log_in">Log In</button>
+        <!-- <button id="out" class="out">Log out</button> -->
+
+      </div>
+      
+    </nav>
+
+    <div id="simpleModal" class="modal">
+      <div class="modal-content">
+        <span id="closeBtn">&times;</span>
+        <form class="myForm">
+          <label class="headings" for="email">Enter Name</label>
+          <input  type="text" name="email" class="inputs" id="email_inp">
+          <label class="headings" for="email">Enter Pin</label>
+          <input type="password"  maxlength="4" name="password" class="inputs" id="password_inp">
+          <button>Submit</button>
+        </form>
+      </div>
+    </div>
+
+
+    <div id="logModal" class="log">
+      <div class="modal_log-content">
+        
+        <form id="login" class="login">
+          
+          <input
+          type="text"
+          placeholder="user"
+          class="login__input login__input--user"
+          id="login-email"
+        />
+
+          <input
+          type="text"
+          placeholder="PIN"
+          maxlength="4"
+          class="login__input login__input--pin"
+          id="login-password"
+        />
+
+
+          <!-- <label class="headings" for="email">Enter Password</label>
+          <input type="password" name="password" class="inputs" id="password_inp"> -->
+          <button class="login__btn">&rarr;</button>
+        </form>
+      </div>
+    </div>
+
+    <main >
+      <div id="app" class="app">
+      <!-- BALANCE -->
+      <div class="balance">
+        <div>
+          <p class="balance__label">Current balance</p>
+          <p class="balance__date">
+            As of <span class="date">05/03/2037</span>
+          </p>
+        </div>
+        <p class="balance__value"> 0000  &#8377 </p>
+      </div>
+
+      <!-- MOVEMENTS -->
+      <div class="movements">
+        <div class="movements__row">
+          <div class="movements__type movements__type--deposit">2 deposit</div>
+          <div class="movements__date">3 days ago</div>
+          <div class="movements__value">4 000 </div>
+        </div>
+        <div class="movements__row">
+          <div class="movements__type movements__type--withdrawal">
+            1 withdrawal
+          </div>
+          <div class="movements__date">24/01/2037</div>
+          <div class="movements__value">-378</div>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="summary">
+        <p class="summary__label">In</p>
+        <p class="summary__value summary__value--in">0000</p>
+        <p class="summary__label">Out</p>
+        <p class="summary__value summary__value--out">0000</p>
+        <!-- <p class="summary__label">Interest</p> -->
+        <!-- <p class="summary__value summary__value--interest">0000  &#8377</p>
+        <button class="btn--sort">&downarrow; SORT</button> -->
+      </div>
+
+      <!-- OPERATION: TRANSFERS -->
+      <div class="operation operation--transfer">
+        <h2>Spend money</h2>
+        <form class="form form--transfer">
+          <!-- <input type="text" class="form__input form__input--to" /> -->
+          <select name="" class="form__input" id="selectBox">
+            <option class="option" value="default">Choose</option>
+            <option class="option" value="entertainment">Entertainment</option>
+            <option class="option" value="study">Studies</option>
+            <option class="option" value="food">Food</option>
+            <option class="option" value="misc">Miscelenious</option>
+          </select>
+          <input type="number" class="form__input form__input--amount" />
+          <button class="form__btn form__btn--transfer">&rarr;</button>
+          <label class="form__label">Transfer to</label>
+          <label class="form__label">Amount</label>
+        </form>
+      </div>
+
+      <!-- OPERATION: LOAN -->
+      <div class="operation operation--loan">
+        <h2>Deposit Money</h2>
+        <form class="form form--loan">
+          <input type="number" class="form__input form__input--loan-amount" />
+          <button class="form__btn form__btn--loan">&rarr;</button>
+          <label class="form__label form__label--loan">Amount</label>
+        </form>
+      </div>
+
+      <!-- OPERATION: CLOSE -->
+      <div class="operation operation--close">
+        <h2>Close account</h2>
+        <form class="form form--close">
+          <input type="text" class="form__input form__input--user" />
+          <input
+            type="password"
+            maxlength="6"
+            class="form__input form__input--pin"
+          />
+          <button class="form__btn form__btn--close">&rarr;</button>
+          <label class="form__label">Confirm user</label>
+          <label class="form__label">Confirm PIN</label>
+        </form>
+      </div>
+
+      <!-- LOGOUT TIMER -->
+      <div class="settings">
+        <button class="log_out" id="log_out">Log Out</button>
+        <button class="admin log_out" id="admin"> <a href="#admin_cont">Admin</a></button>
+
+      </div>
+    </div>
+
+        <div  id="admin_cont" class="admin_cont hide">
+          <div class="main__container">
+          <!-- MAIN TITLE STARTS HERE -->
+
+          <div class="main__title">
+            <img src="assets/hello.svg" alt="" />
+            <div class="main__greeting">
+              <h1 id="intro">Hello Codersbite</h1>
+              <p>Welcome to your admin dashboard</p>
+            </div>
+          </div>
+
+          <!-- MAIN TITLE ENDS HERE -->
+
+          <!-- MAIN CARDS STARTS HERE -->
+          <div class="main__cards">
+            <div class="card">
+              <i
+                class="fa fa-futbol-o fa-2x text-lightblue"
+                aria-hidden="true"
+              ></i>
+              <div class="card_inner">
+                <p class="text-primary-p">Entertainment</p>
+                <p class="mon" id="enter">452151</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <i class="fa fa-book fa-2x text-green" aria-hidden="true"></i>
+              <div class="card_inner">
+                <p class="text-primary-p">Studies</p>
+                <p class="mon " id="study" >452151</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <i class="fa fa-cutlery fa-2x text-black" aria-hidden="true"></i>
+              <div class="card_inner">
+                <p class="text-primary-p">Food</p>
+                <p class="mon" id="food">452151</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <i class="fa fa-film fa-2x text-red" aria-hidden="true"></i>
+              <div class="card_inner">
+                <p class="text-primary-p">Miscellaneous</p>
+                <p class="mon" id="misc">452151</p>
+              </div>
+            </div>
+          </div>
+          <!-- MAIN CARDS ENDS HERE -->
+
+          <!-- CHARTS STARTS HERE -->
+          <div class="charts">
+            <div class="charts__left">
+               <div class="charts__left__title">
+                <div>
+                  <h1>Daily Reports</h1>
+                  <!-- <p>Cupertino, California, USA</p> -->
+                </div>
+                <i class="fa fa-inr" aria-hidden="true"></i>
+              </div>
+              <canvas id="mychart">
+
+              </canvas>
+              
+            </div>
+
+            <div class="charts__right">
+              <div class="charts__right__title">
+                <div>
+                  <h1>Stats Reports</h1>
+                  <!-- <p>Cupertino, California, USA</p> -->
+                </div>
+                <i class="fa fa-inr" aria-hidden="true"></i>
+              </div>
+
+              <div class="charts__right__cards">
+              <h3 class="main_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quia eum ab. A, omnis, eligendi possimus natus facilis impedit porro tenetur fugit harum eveniet, ad quo quae dicta delectus enim?</h3>
+              </div>
+            </div>
+           <button class="admin log_out end" id="end"> <a href="#app">close</a></button>
+          </div>
+          <!-- CHARTS ENDS HERE -->
+        </div>
+        </div>
+
+    
+  </main>
+
+    <!-- <footer>
+      &copy; by Jonas Schmedtmann. Don't claim as your own :)
+    </footer> -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCFd-bXtPwMrqbEpqNTxRNkCUcq2SOsVhY",
+    authDomain: "studebank.firebaseapp.com",
+    databaseURL: "https://studebank-default-rtdb.firebaseio.com",
+    projectId: "studebank",
+    appId: "1:108318688942:web:3645d9b7673fabc08b8f3f",
+    measurementId: "G-HH5QR5VM18"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  //Refferences
+  const auth=firebase.auth();
+  const db=firebase.firestore();
+
+  // update firestore settings
+  db.settings({timestampsInSnapshots:true}); 
+</script>
+
+   
+    <!-- <script src="auth.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  </body>
+</html>
+
