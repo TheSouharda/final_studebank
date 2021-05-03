@@ -142,6 +142,7 @@ const logOut = document.getElementById('log_out');
 const end = document.getElementById('end');
 
 const select = document.querySelector('#selectBox');
+const main_id = document.querySelector('#main_text');
 
 const signupForm = document.querySelector('.myForm');
 
@@ -270,13 +271,13 @@ const showDetails = acc => {
   let max_of_array = Math.max.apply(Math, value);
 
   if (enter === max_of_array) {
-    console.log('to much entertainment');
+    main_id.textContent = `Too much money being spent on entertainment. You need to be serious about your Studies. Or else your parents wont send you any money and you wont be able to use this fine peice of technology called StudeBank 😎 `;
   } else if (studySum === max_of_array) {
-    console.log('to much study');
+    main_id.textContent = `Woah youre studying way to much!!. All study and no play makes Jack a dull boy!🙄`;
   } else if (foodSum === max_of_array) {
-    console.log('to much food');
+    main_id.textContent = `Stop eating so much. Go hit the gym for gods sake!🦾`;
   } else if (miscSum === max_of_array) {
-    console.log('to much smoking');
+    main_id.textContent = `Heh can you specifically tell your parents what are things youre spending on under the section of miscellaneous 😏😏`;
   }
 };
 
