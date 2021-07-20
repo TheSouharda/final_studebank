@@ -1,0 +1,4 @@
+# StudeBank
+Managing and saving money has always been an issue for us students. Students always tend to spend money on useless things. They cannot organize the pocket money they get from their parents and thus become financially broke before the month ends. We being college students, have ourselves faced this issue. At this age, one of the essential skills a person should have is to save and invest money and resources he/she has.  
+StudeBank was visualized by its developers when they cogitated about finding a solution to this major problem faced by college students. The motive that kept the developers going on is that they themselves are students and are therefore deeply familiar with the day-to-day experiences of a college student.
+Consequently, StudeBank was developed to solve the problem of unnecessary expenditure. StudeBank helps students keep track of their monthly expenditures, thus helping them in smart savings altogether.
